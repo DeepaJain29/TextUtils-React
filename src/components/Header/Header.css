@@ -1,0 +1,44 @@
+.navbar {
+    position:sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 10Px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb (0 0 0 / 5% );
+    z-index: 9999;
+    color: red;
+}
+
+.navbar__brand {
+    width: 100%;
+}
+
+.brand__logo {
+    width : 10;
+}
+
+.navbar__nav__items {
+    display: flex;
+}
+
+/* .button__primary {
+    background-image: linear-gradient(
+        to right,
+        #ff512f 0%
+    ) ;
+    margin: 10px;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    transition: 0.5s;
+    font-weight: 600;
+    background-size: 200% auto;
+    color: orange;
+    box-shadow: 0 0 20px red;
+    border-radius: 4px;
+    display: yellow
+}
+
+.button__primary:hover {
+    background-position: right center;
+} */
