@@ -78,7 +78,7 @@ import 'bootstrap/dist/css/bootstrap.css';
   //   );
   // }
   
-function NavScroll(props) {
+export default function NavScroll(props) {
 
 
 
@@ -93,7 +93,7 @@ function NavScroll(props) {
         <Link  className="navbar-brand">{props.title}</Link >
         <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-              <li className="nav-item active">
+              <li className="nav-item ">
                 <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
               </li>
               <li className="nav-item">
@@ -136,19 +136,23 @@ function NavScroll(props) {
                 </div>
                 
               </div> */}
-              <button type="button" onClick={props.handleBlue} className="btn btn-outline-primary">blue</button>
-              <button type="button"  onClick={props.handleGreen} className="btn btn-outline-success">Green</button>
-              <button type="button" onClick={props.handleRed} className="btn btn-outline-danger">Red</button>
-              <button type="button" onClick={props.handleYellow} className="btn btn-outline-warning">Yellow</button>
+              <div className="d-flex">
+                <div className = "bg-primary rounded mx-2 my-2" onClick = {() => {props.toggleMode('primary')}} style={{height:"20px", width:"20px", cursor:'pointer'}}></div>
+                <div className = "bg-danger rounded mx-2 my-2" onClick = {() => {props.toggleMode('danger')}} style={{height:"20px", width:"20px", cursor:'pointer'}}></div>
+                  <button type="button" onClick={props.handleBlue} className="btn btn-outline-primary">blue</button>
+                  <button type="button"  onClick={props.handleGreen} className="btn btn-outline-success">Green</button>
+                  {/* <button type="button" onClick={props.handleRed} className="btn btn-outline-danger">Red</button>
+                  <button type="button" onClick={props.handleYellow} className="btn btn-outline-warning">Yellow</button> */}
+              </div>
             </ul>
           </div>
         <form className="form-inline">
-          <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+          <input className="form-control mr-sm-2"  type="search" placeholder="Search" aria-label="Search"/>
           <button className="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
         </form>
         <div className={`form-check form-switch mx-1 text-${props.Mode==='light'?'dark':'light'}`}>
-          <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-          <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark Mode</label>
+          <input className="form-check-input" onClick={() => {props.toggleMode(null)}} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+          <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Toggle Mode</label>
         </div>
       </nav>
       </div>
@@ -184,4 +188,3 @@ Navbar.defaultProps = {
     abouttext : 'About us'
 }
 
-export default NavScroll;

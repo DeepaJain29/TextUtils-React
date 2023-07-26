@@ -1,41 +1,49 @@
-import React, { useState } from 'react'
+import React from 'react'
+// import { useState } from 'react'
 
-export default function About() {
+export default function About(props) {
 
-    const [mystyle, SetMyStyle] = useState({
-        color : "white",
-        backgroundColor: "black",   
-    })
+    // const [mystyle, SetMyStyle] = useState({
+    //     color : "white",
+    //     backgroundColor: "black",   
+    // })
 
-    const [btnText, setBtnText] = useState('Dark Mode')
+    // const [btnText, setBtnText] = useState('Light Mode')
     
-    const toggleStyle = () => {
-        if (mystyle.color === 'white'){
-            SetMyStyle ({
-                color : "black",
-                backgroundColor: "white",
-                border: " 1px solid white"
+    // const toggleStyle = () => {
+    //     if (mystyle.color === 'white'){
+    //         SetMyStyle ({
+    //             color : "black",
+    //             backgroundColor: "white",
+    //             border: " 1px solid white"
 
-            })
-            setBtnText('Dark Mode')
+    //         })
+    //         setBtnText('Dark Mode')
 
-        }
-        else{
-            SetMyStyle ({
-                color : "white",
-                backgroundColor: "black",
+    //     }
+    //     else{
+    //         SetMyStyle ({
+    //             color : "white",
+    //             backgroundColor: "black",
 
-            })
-            setBtnText('Light Mode')
-        }
+    //         })
+    //         setBtnText('Light Mode')
+    //     }
+    // }
+
+    let mystyle = {
+        color : props.Mode === 'dark' ? "white" : "black",
+        backgroundColor: props.Mode === 'dark'?'#201234':'#e3dceb',
+        // border: " 1px solid " + props.Mode === 'black'? "white" : "black",
+        // borderColor:props.Mode ==='dark'?'#b8a9c9':'#622569',
+        // border: " 1px solid " ,
+        // borderRadius: " 2px solid",
     }
-
-    
     return(
         <div className='container' style = {mystyle}>
-            <h2>About Us</h2>
+            <h2 className='my-3' style={{color : props.Mode === 'dark' ? "white" : "black"}}>About Us</h2>
             <div className="accordion" id="accordionExample" style = {mystyle}>
-                <div className="accordion-item">
+                <div className="accordion-item" style= {{borderColor:props.Mode ==='dark'?'#b8a9c9':'#622569'}}>
                     <h2 className="accordion-header">
                     <button className="accordion-button" type="button" style = {mystyle} data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         Accordion Item #1
@@ -47,7 +55,7 @@ export default function About() {
                     </div>
                     </div>
                 </div>
-                <div className="accordion-item">
+                <div className="accordion-item" style= {{borderColor:props.Mode ==='dark'?'#b8a9c9':'#622569'}}>
                     <h2 className="accordion-header">
                     <button className="accordion-button collapsed" style = {mystyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                         Accordion Item #2
@@ -59,7 +67,7 @@ export default function About() {
                     </div>
                     </div>
                 </div>
-                <div className="accordion-item">
+                <div className="accordion-item" style= {{borderColor:props.Mode ==='dark'?'#b8a9c9':'#622569'}}>
                     <h2 className="accordion-header">
                     <button className="accordion-button collapsed" style = {mystyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                         Accordion Item #3
@@ -72,12 +80,12 @@ export default function About() {
                     </div>
                 </div>
             </div >
-            <div className = "container my-3">
+            {/* <div className = "container my-3">
                 
                     
                 <button type="button" className="btn btn-dark" onClick={toggleStyle}>{btnText}</button>
                    
-            </div>
+            </div> */}
 
         </div>
     )

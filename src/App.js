@@ -9,9 +9,7 @@ import About from './components/About';
 // import About from './components/About';
 import { BrowserRouter as Router, 
   Routes, 
-  Route, 
-  Request , 
-  Link
+  Route
 } from 'react-router-dom';
 
 function App() {
@@ -45,7 +43,18 @@ function App() {
       }, 1500);
   }
 
-  const toggleMode = () => { 
+  const removeBodyClasses = () => {
+    document.body.classList.remove('bg-dark');
+    document.body.classList.remove('bg-light');
+    document.body.classList.remove('bg-danger');
+    document.body.classList.remove('bg-sucess');
+    document.body.classList.remove('bg-primary');
+    document.body.classList.remove('bg-warning');
+   }
+
+  const toggleMode = (cls) => { 
+    removeBodyClasses(); 
+    document.body.classList.add('bg-' + cls);
     if (Mode === "light"){
       setMode("dark");
       document.body.style.backgroundColor = '#201234';
@@ -97,7 +106,7 @@ function App() {
         <Alert alert ={alert} />
         <div className = "container my-3">
           <Routes>
-            <Route exact path= "/About" element={<About />} />
+            <Route exact path= "/About" element={<About Mode ={Mode} />} />
             {/* <Route path="/" element={<Home />} /> */}
             <Route exact path= "/" element = {<TextForm heading = "Enter the text" Mode={Mode} showAlert = {showAlert}/>}/>
             
